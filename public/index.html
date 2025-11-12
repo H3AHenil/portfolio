@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Henil Agrawal - Student Developer</title>
+  <link rel="stylesheet" href="css/main.css"> 
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="#home">Henil Agrawal</a>
+      <ul class="nav-list">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li class="cta"><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home" class="home-section container">
+    <section class="intro">
+      <div class="intro-text">
+        <h1>Henil Agrawal</h1>
+        <p class="tagline">Computer Science Student | VR Developer | Lifelong Learner</p>
+        <div class="links">
+          <a href="#">Github</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Download Resume</a>
+          <a href="mailto:henilagrawal@gmail.com">Email Me</a>
+        </div>
+      </div>
+
+      <figure class="intro-reel">
+        <video id="introVideo" class="reel"
+               autoplay muted loop playsinline preload="metadata"
+               poster="../assets/img/test-img.png">
+          <source src="../assets/video/test-vid.webm" type="video/webm" />
+          <source src="../assets/video/test-vid.mp4"  type="video/mp4" />
+        </video>
+        <figcaption class="sr-only">Showreel demonstrating work.</figcaption>
+      </figure>
+    </section>
+
+    <section id="projects"></section> <!-- add project cards in the future -->
+    <section id="experience"></section>
+    <section id="contact"></section>
+  </main>
+
+  <script defer src="js/app.js"></script>
+</body>
+</html>
