@@ -1,51 +1,243 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Henil Agrawal - Student Developer</title>
-  <link rel="stylesheet" href="css/main.css"> 
+  <title>Henil Agrawal • Portfolio (CRT Theme)</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="site-nav">
-      <a class="brand" href="#home">Henil Agrawal</a>
-      <ul class="nav-list">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li class="cta"><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Synthwave grid -->
+  <div class="synth-bg" aria-hidden="true"><div class="synth-grid" aria-hidden="true"></div></div>
+  <!-- CRT scanlines -->
+  <div class="overlay" aria-hidden="true"></div>
 
-  <main id="home" class="home-section container">
-    <section class="intro">
-      <div class="intro-text">
-        <h1>Henil Agrawal</h1>
-        <p class="tagline">Computer Science Student | VR Developer | Lifelong Learner</p>
-        <div class="links">
-          <a href="#">Github</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Download Resume</a>
-          <a href="mailto:henilagrawal@gmail.com">Email Me</a>
+  <div class="wrapper">
+    <main id="home" class="content" role="main">
+      <section class="hero" aria-label="Hero">
+        <div class="hero-text">
+          <h1>Henil Agrawal</h1>
+          <p class="rule" aria-hidden="true">----------------------------------------</p>
+          <p class="tagline">- Computer Science Student · VR Developer · smtg -</p>
+          <div class="links">
+            <!-- GitHub -->
+            <div class="chip-wrap">
+              <img class="chip-icon" src="../assets/img/github.png" alt="" aria-hidden="true">
+              <a class="chip" href="https://github.com/H3AHenil" rel="me noopener noreferrer" target="_blank">
+                GitHub
+              </a>
+            </div>
+          
+            <!-- LinkedIn -->
+            <div class="chip-wrap">
+              <img class="chip-icon" src="../assets/img/linkedin.png" alt="" aria-hidden="true">
+              <a class="chip" href="https://www.linkedin.com/in/henil-agrawal-777725216//" rel="me noopener noreferrer" target="_blank">
+                LinkedIn
+              </a>
+            </div>
+          
+            <!-- Resume -->
+            <div class="chip-wrap">
+              <img class="chip-icon" src="../assets/img/download.png" alt="" aria-hidden="true">
+              <a class="chip" href="../assets/resume/Henil_Agrawal_Resume.pdf" download="Henil_Agrawal_Resume.pdf">
+                Download&nbsp;Resume
+              </a>
+            </div>
+          
+            <!-- Email -->
+            <div class="chip-wrap">
+              <img class="chip-icon" src="../assets/img/mail.png" alt="" aria-hidden="true">
+              <a class="chip" href="mailto:henilagrawal@gmail.com">
+                Email
+              </a>
+            </div>
+          </div>
+          
         </div>
-      </div>
 
-      <figure class="intro-reel">
-        <video id="introVideo" class="reel"
-               autoplay muted loop playsinline preload="metadata"
-               poster="../assets/img/test-img.png">
-          <source src="../assets/video/test-vid.webm" type="video/webm" />
-          <source src="../assets/video/test-vid.mp4"  type="video/mp4" />
-        </video>
-        <figcaption class="sr-only">Showreel demonstrating work.</figcaption>
-      </figure>
-    </section>
+        <figure class="hero-reel" aria-label="Showreel">
+          <video
+            id="heroVideo"
+            autoplay muted loop playsinline preload="metadata"
+            poster="../assets/img/test-img.png"
+          >
+            <source src="../assets/video/test-vid.webm" type="video/webm" />
+          </video>
+          <figcaption class="sr-only">Short silent showreel demonstrating projects.</figcaption>
+        </figure>
+      </section>
 
-    <section id="projects"></section> <!-- add project cards in the future -->
-    <section id="experience"></section>
-    <section id="contact"></section>
-  </main>
+      <!-- Theme-style nav -->
+      <nav class="theme-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- ABOUT -->
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <div class="muted">
+          <p>
+            I’m Henil Agrawal, a student developer who loves building in Unity and VR.
+            I focus on tight mechanics, clean interactions, and smooth performance—then ship playable demos.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+      
+        <div class="projects-grid">
+          <!-- Project card 1 -->
+          <a class="project-card" href="projects/project-01.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p1-poster.jpg"
+                aria-label="Project 01 preview"
+              >
+                <source data-src="../assets/video/test-vid.webm" type="video/webm">
+                <source data-src="../assets/video/test-vid.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">Forge Smith</h3>
+            <p class="proj-caption">VR blacksmithing mechanics: molten flow, casting, haptics.</p>
+            <div class="stack">
+              <span class="badge">Unity</span>
+              <span class="badge">C#</span>
+              <span class="badge">Obi Fluid</span>
+              <span class="badge">Quest 3</span>
+            </div>
+          </a>
+      
+          <!-- Project card 2 -->
+          <a class="project-card" href="projects/project-02.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p2-poster.jpg"
+                aria-label="Project 02 preview"
+              >
+                <source data-src="../assets/video/p2.webm" type="video/webm">
+                <source data-src="../assets/video/p2.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">Grapple Lab</h3>
+            <p class="proj-caption">Zero-GC grappling + rope sag with custom solver indices.</p>
+            <div class="stack">
+              <span class="badge">Unity</span>
+              <span class="badge">C#</span>
+              <span class="badge">AutoHand</span>
+              <span class="badge">URP</span>
+            </div>
+          </a>
+      
+          <!-- Project card 3 -->
+          <a class="project-card" href="projects/project-03.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p3-poster.jpg"
+                aria-label="Project 03 preview"
+              >
+                <source data-src="../assets/video/p3.webm" type="video/webm">
+                <source data-src="../assets/video/p3.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">RingWorks</h3>
+            <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
+            <div class="stack">
+              <span class="badge">C++</span>
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLFW</span>
+            </div>
+          </a>
+
+          <!-- Project card 4 -->
+          <a class="project-card" href="projects/project-04.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p4-poster.jpg"
+                aria-label="Project 04 preview"
+              >
+                <source data-src="../assets/video/test-vid.webm" type="video/webm">
+                <source data-src="../assets/video/test-vid.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">RingWorks</h3>
+            <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
+            <div class="stack">
+              <span class="badge">C++</span>
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLFW</span>
+            </div>
+          </a>
+
+          <!-- Project card 5 -->
+          <a class="project-card" href="projects/project-05.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p5-poster.jpg"
+                aria-label="Project 05 preview"
+              >
+                <source data-src="../assets/video/p3.webm" type="video/webm">
+                <source data-src="../assets/video/p3.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">RingWorks</h3>
+            <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
+            <div class="stack">
+              <span class="badge">C++</span>
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLFW</span>
+            </div>
+          </a>
+        </div>
+      </section>
+      
+
+      <section id="experience" aria-labelledby="exp-heading">
+        <h2 id="exp-heading">Experience</h2>
+        <p class="muted">Experience bullets coming next.</p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <p class="contact-line">
+          Email me at
+          <a class="elevate" href="mailto:henilagrawal@gmail.com">henilagrawal@gmail.com</a>.
+        </p>
+      </section>
+    </main>
+  </div>
 
   <script defer src="js/app.js"></script>
 </body>
