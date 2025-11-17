@@ -20,7 +20,7 @@
         <div class="hero-text">
           <h1>Henil Agrawal</h1>
           <p class="rule" aria-hidden="true">----------------------------------------</p>
-          <p class="tagline">- Computer Science Student · VR Developer · smthg -</p>
+          <p class="tagline">- CS @ The University of British Columbia · Student Developer · XR Enthusiast -</p>
           <div class="links">
             <!-- GitHub -->
             <div class="chip-wrap">
@@ -57,7 +57,7 @@
           
         </div>
 
-        <figure class="hero-reel" aria-label="Showreel">
+        <!-- <figure class="hero-reel" aria-label="Showreel">
           <video
             id="heroVideo"
             autoplay muted loop playsinline preload="metadata"
@@ -66,7 +66,13 @@
             <source src="../assets/video/test-vid.webm" type="video/webm" />
           </video>
           <figcaption class="sr-only">Short silent showreel demonstrating projects.</figcaption>
+        </figure> -->
+        <figure class="hero-reel" aria-label="Showreel" role="button" tabindex="0">
+          <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/img/test-img.png">
+            <source src="../assets/video/test-vid.webm" type="video/webm" />
+          </video>
         </figure>
+        
       </section>
 
       <!-- Theme-style nav -->
@@ -84,8 +90,13 @@
         <h2 id="about-heading">About</h2>
         <div class="muted">
           <p>
-            I’m Henil Agrawal, a student developer who loves building in Unity and VR.
-            I focus on tight mechanics, clean interactions, and smooth performance—then ship playable demos.
+            Hello! I’m Henil, a 3rd year CS student at UBC Vancouver with a keen interest in immersive tech; 
+            I especially enjoy prototyping in XR / Unity and creating physics-based interaction systems. 
+            Beyond that, I've built a wide-range of full-stack applications, dived into all kinds of competitions, 
+            and inspired younger devs to make games :)
+          </p>
+          <p>
+            Currently seeking CO-OP/internship opportunities for summer/fall 2026!
           </p>
         </div>
       </section>
@@ -110,13 +121,14 @@
                 <source data-src="../assets/video/test-vid.mp4"  type="video/mp4">
               </video>
             </figure>
-            <h3 class="proj-title">Forge Smith</h3>
-            <p class="proj-caption">VR blacksmithing mechanics: molten flow, casting, haptics.</p>
+            <h3 class="proj-title">Ctrl+Zen - nwHacks Hackathon</h3>
+            <p class="proj-caption">Real-time attention and emotion sensing via OpenCV/DeepFace.</p>
             <div class="stack">
-              <span class="badge">Unity</span>
-              <span class="badge">C#</span>
-              <span class="badge">Obi Fluid</span>
-              <span class="badge">Quest 3</span>
+              <span class="badge">Python</span>
+              <span class="badge">JS</span>
+              <span class="badge">HTML/CSS</span>
+              <span class="badge">Figma</span>
+              <span class="badge">Flask</span>
             </div>
           </a>
       
@@ -136,13 +148,12 @@
                 <source data-src="../assets/video/p2.mp4"  type="video/mp4">
               </video>
             </figure>
-            <h3 class="proj-title">Grapple Lab</h3>
-            <p class="proj-caption">Zero-GC grappling + rope sag with custom solver indices.</p>
+            <h3 class="proj-title">VR Physics Simulator</h3>
+            <p class="proj-caption">High-fidelity VR interaction with low-latency hand physics, animation, & grab mechanics.</p>
             <div class="stack">
               <span class="badge">Unity</span>
               <span class="badge">C#</span>
-              <span class="badge">AutoHand</span>
-              <span class="badge">URP</span>
+              <span class="badge">XR Interaction Toolkit</span>
             </div>
           </a>
       
@@ -162,12 +173,14 @@
                 <source data-src="../assets/video/p3.mp4"  type="video/mp4">
               </video>
             </figure>
-            <h3 class="proj-title">RingWorks</h3>
-            <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
+            <h3 class="proj-title">Tarot Fortune Reader App</h3>
+            <p class="proj-caption">Animated XML UI (Glide), sortable library, & OOP deck architecture.</p>
             <div class="stack">
-              <span class="badge">C++</span>
-              <span class="badge">OpenGL</span>
-              <span class="badge">GLFW</span>
+              <span class="badge">Android Studio</span>
+              <span class="badge">Java</span>
+              <span class="badge">XML</span>
+              <span class="badge">Glide</span>
+              <span class="badge">Emulators</span>
             </div>
           </a>
 
@@ -187,12 +200,13 @@
                 <source data-src="../assets/video/test-vid.mp4"  type="video/mp4">
               </video>
             </figure>
-            <h3 class="proj-title">RingWorks</h3>
-            <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
+            <h3 class="proj-title">Squid Game Web Database</h3>
+            <p class="proj-caption">Oracle SQL app with REST endpoints, live queries, & normalized BCNF schema.</p>
             <div class="stack">
-              <span class="badge">C++</span>
-              <span class="badge">OpenGL</span>
-              <span class="badge">GLFW</span>
+              <span class="badge">SQL</span>
+              <span class="badge">JS</span>
+              <span class="badge">HTML/CSS</span>
+              <span class="badge">Express.js</span>
             </div>
           </a>
 
@@ -212,7 +226,33 @@
                 <source data-src="../assets/video/p3.mp4"  type="video/mp4">
               </video>
             </figure>
-            <h3 class="proj-title">RingWorks</h3>
+            <h3 class="proj-title">Resource Management Simulator</h3>
+            <p class="proj-caption">OOP-based Java strategy sim, JSON save/load, & JUnit test coverage.</p>
+            <div class="stack">
+              <span class="badge">Java</span>
+              <span class="badge">Swing</span>
+              <span class="badge">JSON</span>
+              <span class="badge">JUnit</span>
+            </div>
+          </a>
+
+          <!-- Project card 6 -->
+          <a class="project-card" href="projects/project-05.html">
+            <figure class="thumb">
+              <video
+                class="proj-video"
+                muted
+                playsinline
+                loop
+                preload="none"
+                poster="../assets/img/p5-poster.jpg"
+                aria-label="Project 05 preview"
+              >
+                <source data-src="../assets/video/p3.webm" type="video/webm">
+                <source data-src="../assets/video/p3.mp4"  type="video/mp4">
+              </video>
+            </figure>
+            <h3 class="proj-title">RingWorks - VIP</h3>
             <p class="proj-caption">C++/OpenGL planetary rings: tiling, noise, LOD perf.</p>
             <div class="stack">
               <span class="badge">C++</span>
@@ -238,6 +278,17 @@
       </section>
     </main>
   </div>
+
+  <!-- Hero Reel Modal -->
+<div id="reelModal" class="reel-modal" aria-hidden="true">
+  <div class="reel-backdrop" data-close="true"></div>
+  <div class="reel-dialog" role="dialog" aria-modal="true" aria-label="Expanded showreel">
+    <button class="reel-close" type="button" aria-label="Close" data-close="true">{X}</button>
+    <!-- We’ll temporarily move #heroVideo into here when opening -->
+    <div class="reel-stage"></div>
+  </div>
+</div>
+
 
   <script defer src="js/app.js"></script>
 </body>
