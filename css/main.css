@@ -184,6 +184,7 @@
   .muted{ color:rgba(255,255,255,0.85); }
   
   /* headings glow under grid (body text uses normal color) */
+  .content a,
   .content h1,
   .content h2,
   .content h3,
