@@ -321,3 +321,78 @@
   cursor: pointer;
 }
 .reel-close:hover{ background: var(--phosphor); color:#000; }
+
+
+.projects-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:16px;
+  margin-bottom:14px;
+  font-size:1em;            /* bigger text overall */
+}
+
+.projects-sort label{
+  font-size:1em;
+}
+
+.projects-sort select{
+  background:rgba(0,0,0,0.4);
+  border:1px dashed var(--phosphor);
+  color:#fff;
+  font-family:'VT323', monospace;
+  padding:6px 12px;            /* more padding */
+  font-size:0.75em;               /* match body size */
+  line-height:1.2;
+}
+
+.projects-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.filter-pill{
+  background:rgba(0,0,0,0.35);
+  border:1px dashed var(--phosphor);
+  color:#fff;
+  font-family:'VT323', monospace;
+  padding:6px 14px;            /* chunkier buttons */
+  font-size:0.7em;               /* larger label text */
+  cursor:pointer;
+}
+
+.filter-pill.is-active{
+  background:var(--phosphor);
+  color:#000;
+}
+
+/* Only elevate the interactive controls, not the label text */
+.projects-sort select,
+.filter-pill{
+  position: relative;
+  z-index: 7;   /* above scanlines */
+}
+
+/* Toolbar container itself stays in normal flow (below scanlines) */
+.projects-toolbar{
+  position: static;  /* or just remove any position/z-index */
+  z-index: auto;
+}
+
+
+/* Hover/focus states for controls */
+.projects-sort select:hover,
+.projects-sort select:focus{
+  color: red;
+}
+
+/* Filter pills hover: match link hover behaviour */
+.filter-pill:hover,
+.filter-pill:focus-visible{
+  color: red;
+  outline: none;
+}
+
