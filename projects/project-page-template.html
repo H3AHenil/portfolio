@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ctrl+Zen • Project Case Study – Henil Agrawal</title>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/project.css">
+      </head>
+      
+<body>
+  <!-- Synthwave grid -->
+  <div class="synth-bg" aria-hidden="true">
+    <div class="synth-grid" aria-hidden="true"></div>
+  </div>
+  <!-- Scanlines -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <div class="wrapper">
+    <main class="content project-page" role="main">
+      <!-- Header -->
+      <header class="project-header">
+        <a href="../index.html#projects" class="project-back-link">
+          <span class="brackets">Back to projects</span>
+        </a>
+
+        <div class="project-title-bar">
+            <!-- Core card -->
+            <div class="project-title-bar-core">
+              <div class="project-title-row">
+                <div>
+                  <div class="project-id-tag">PROJECT // Hackathon</div>
+                  <h1 class="project-title">Ctrl+Zen – Attention & Emotion Monitor</h1>
+                </div>
+                <p class="project-tagline">
+                  Unlocking developer productivity with real-time attention and emotion tracking.
+                </p>
+              </div>
+          
+              <div class="project-meta-row">
+                <span class="project-meta-chip">
+                  <span class="project-meta-chip-core">Hackathon · nwHacks 2025</span>
+                  <span class="project-meta-chip-border" aria-hidden="true"></span>
+                </span>
+              
+                <span class="project-meta-chip">
+                  <span class="project-meta-chip-core">Team · 4 people</span>
+                  <span class="project-meta-chip-border" aria-hidden="true"></span>
+                </span>
+              
+                <span class="project-meta-chip">
+                  <span class="project-meta-chip-core">Role: Leader, Front-end, ML</span>
+                  <span class="project-meta-chip-border" aria-hidden="true"></span>
+                </span>
+              </div>
+              
+            </div>
+          
+            <!-- Border overlay -->
+            <div class="project-title-bar-border" aria-hidden="true"></div>
+          </div>
+          
+
+        <!-- Mini in-page nav -->
+        <nav class="project-mini-nav" aria-label="Project sections">
+          <a href="#overview">Overview</a>
+          <a href="#tech">Tech stack</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#learnings">What I learned</a>
+        </nav>
+      </header>
+
+      <!-- CRT window -->
+      <section class="project-hero" aria-label="Project media and quick info">
+        <figure class="crt-window project-hero-media">
+          <div class="crt-window-header">
+            <div class="crt-window-title">
+              <span class="crt-dots">
+                <span class="crt-dot red"></span>
+                <span class="crt-dot yellow"></span>
+                <span class="crt-dot green"></span>
+              </span>
+              <span class="crt-window-filename">ctrl-zen_demo.mp4</span>
+            </div>
+            <div class="crt-window-status">STATUS: LIVE DEMO</div>
+          </div>
+          <video
+            muted
+            autoplay
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/img/p1-poster.jpg"
+          >
+            <source src="../assets/video/test-vid.webm" type="video/webm">
+            <source src="../assets/video/test-vid.mp4"  type="video/mp4">
+          </video>
+          <figcaption class="sr-only">
+            Short demo reel of the Ctrl+Zen hackathon project.
+          </figcaption>
+        </figure>
+
+        <aside class="project-meta" aria-label="Quick project details">
+            <div class="project-meta-core">
+              <h2>Quick info</h2>
+              <dl>
+                <dt>Role</dt>
+                <dd>Wired ML pipeline & dashboard front-end.</dd>
+          
+                <dt>Team</dt>
+                <dd>4-person.</dd>
+          
+                <dt>Timeline</dt>
+                <dd>24-hour hackathon sprint.</dd>
+          
+                <dt>Tech</dt>
+                <dd>
+                  <span class="badge">Python</span>
+                  <span class="badge">OpenCV</span>
+                  <span class="badge">DeepFace</span>
+                  <span class="badge">Flask</span>
+                  <span class="badge">HTML/CSS/JS</span>
+                  <span class="badge">Figma</span>
+                </dd>
+          
+                <dt>Links</dt>
+                <dd>
+                  <a href="https://github.com/your-repo" target="_blank" rel="noopener noreferrer" class="elevate">GitHub</a>
+                  &nbsp;·&nbsp;
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="elevate">Devpost / write-up</a>
+                </dd>
+              </dl>
+            </div>
+          
+            <div class="project-meta-border" aria-hidden="true"></div>
+          </aside>
+          
+      </section>
+
+      <!-- Overview -->
+      <section id="overview" class="project-section" aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          Ctrl+Zen is a hackathon prototype that tracks a participant’s attention and
+          emotion from webcam input, then surfaces lightweight signals that can help
+          instructors or facilitators see when a group is drifting, stressed, or engaged.
+        </p>
+        <p>
+          We scoped the project around a single goal: make it easier to “read the room”
+          in remote workshops without turning the experience into surveillance. That meant
+          aggregating signals, smoothing noise, and keeping the UI simple and ambient.
+        </p>
+      </section>
+
+      <!-- Tech stack -->
+      <section id="tech" class="project-section" aria-labelledby="tech-heading">
+        <h2 id="tech-heading">Tech stack & architecture</h2>
+        <ul>
+          <li>Used <code>Python + Flask</code> to expose a simple API for attention and emotion scores.</li>
+          <li>Ran <code>OpenCV</code> for face/eye detection and <code>DeepFace</code> for emotion inference.</li>
+          <li>Served a lightweight web dashboard that visualized trends over time with minimal latency.</li>
+          <li>Prototyped flows in Figma first, then implemented the final UI to match that spec.</li>
+        </ul>
+      </section>
+
+      <!-- Highlights -->
+      <section id="highlights" class="project-section" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Highlights</h2>
+        <ul>
+          <li>Got a full end-to-end pipeline working in a single weekend (capture → inference → visualization).</li>
+          <li>Smoothed raw model outputs so the dashboard felt calm instead of jittery or noisy.</li>
+          <li>Balanced performance and readability so the UI stayed responsive on typical laptops.</li>
+        </ul>
+      </section>
+
+      <!-- Learnings -->
+      <section id="learnings" class="project-section" aria-labelledby="learnings-heading">
+        <h2 id="learnings-heading">What I learned</h2>
+        <ul>
+          <li>How to glue together ML libraries, APIs, and a browser dashboard under tight time constraints.</li>
+          <li>The importance of privacy-aware design choices for anything that uses webcam data.</li>
+          <li>How to ruthlessly de-scope features so something demoable is ready by judging time.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

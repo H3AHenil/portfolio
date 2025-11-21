@@ -1,7 +1,7 @@
 const projects = [
     {
       id: 'p1',
-      href: 'projects/project-01.html',
+      href: 'projects/project-page-template.html',
       title: 'Ctrl+Zen - nwHacks Hackathon',
       caption: 'Real-time attention and emotion sensing via OpenCV/DeepFace.',
       poster: '../assets/img/p1-poster.jpg',
@@ -29,7 +29,7 @@ const projects = [
     },
     {
       id: 'p3',
-      href: 'projects/project-03.html',
+      href: 'projects/project-tarotandroid.html',
       title: 'Tarot Fortune Reader App',
       caption: 'Animated XML UI (Glide), sortable library, & OOP deck architecture.',
       poster: '../assets/img/p3-poster.jpg',
@@ -157,15 +157,13 @@ const projects = [
   
     const handleClick = (e) => {
       if (!isMobile) return; // on desktop, let link work normally
-      // On mobile: toggle play/pause instead of instantly navigating
       const v = videoRef.current;
       if (!v) return;
-      // First tap plays video, second tap will follow the link (simple pattern)
+      // First tap plays video, second tap will follow the link
       if (v.paused) {
         e.preventDefault();
         v.play().catch(() => {});
       }
-      // if already playing, let the click go through and open project page
     };
   
     return (
@@ -211,11 +209,11 @@ const projects = [
   
   function ProjectsGrid() {
     const isMobile = useIsMobile();
-    const [sortBy, setSortBy] = React.useState('recommended'); // 'recommended' | 'newest'
-    const [filter, setFilter] = React.useState('all');         // 'all' | 'solo' | 'team'
+    const [sortBy, setSortBy] = React.useState('recommended');
+    const [filter, setFilter] = React.useState('all');
   
     const displayedProjects = React.useMemo(() => {
-      // Start with original order (recommended)
+      // Start with original order
       let list = projects.slice();
   
       // Filter by teamType
@@ -229,7 +227,6 @@ const projects = [
       if (sortBy === 'newest') {
         list = list.slice().sort((a, b) => (b.year || 0) - (a.year || 0));
       }
-      // 'recommended' keeps original order
   
       return list;
     }, [sortBy, filter]);
@@ -285,7 +282,6 @@ const projects = [
       </>
     );
   }
-  
   
 // Mount React only for the projects section
 (function () {
