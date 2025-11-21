@@ -72,7 +72,7 @@ const projects = [
     {
       id: 'p6',
       href: 'projects/project-05.html',
-      title: 'RingWorks - VIP',
+      title: 'RingWorks - WIP',
       caption: 'C++/OpenGL planetary rings: tiling, noise, LOD perf.',
       poster: '../assets/img/p5-poster.jpg',
       stack: ['C++', 'OpenGL', 'GLFW'],
