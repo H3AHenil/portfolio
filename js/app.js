@@ -155,18 +155,22 @@
     fullscreenInner.appendChild(win);
     win.classList.add('is-fullscreen');
 
-    // Reset positioning so CSS controls it
+    // Reset positioning
     win.style.position = 'relative';
     win.style.left = '';
     win.style.top = '';
     win.style.width = '';
 
     if (video){
-      video.setAttribute('controls', '');
-      video.controls = true;
+      video.muted = false;
+    video.removeAttribute('muted');
+    video.volume = 1;
 
-      video.loop = true;
-      video.play().catch(()=>{});
+    video.setAttribute('controls', '');
+    video.controls = true;
+    video.loop = true;
+
+    video.play().catch(()=>{});
     }
 
     isFullscreen = true;

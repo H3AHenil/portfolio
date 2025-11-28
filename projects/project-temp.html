@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coming Soon – Henil Agrawal</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <style>
+      .coming-wrap{
+        min-height: 80vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 7;
+      }
+      .coming h1{
+        margin: 0 0 10px;
+        font-size: clamp(48px, 12vw, 200px);
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .coming p{
+        margin: 0;
+        font-size: clamp(16px, 3vw, 28px);
+        color: rgba(255,255,255,0.9);
+      }
+      .back-bar{
+        width: var(--container);
+        margin: 24px auto 0;
+        padding: 0 24px;
+        position: relative;
+        z-index: 7;
+      }
+      .back-link{
+        color:#fff;
+        text-decoration:none;
+      }
+      .back-link:hover{ color:red; }
+      .back-link::before{ content:"{"; color:var(--phosphor); margin-right:6px; }
+      .back-link::after{  content:"}"; color:var(--phosphor); margin-left:6px; }
+    </style>
+  </head>
+  <body>
+    <div class="synth-bg" aria-hidden="true">
+      <div class="synth-grid" aria-hidden="true"></div>
+    </div>
+    <div class="overlay" aria-hidden="true"></div>
+
+    <div class="back-bar">
+      <a class="back-link" href="../index.html#projects">Back to projects</a>
+    </div>
+
+    <main class="coming-wrap">
+      <div class="coming">
+        <h1>COMING SOON</h1>
+        <p>Work in progress — check back soon</p>
+      </div>
+    </main>
+
+    <script src="../js/app.js"></script>
+  </body>
+</html>

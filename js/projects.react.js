@@ -1,21 +1,21 @@
 const projects = [
     {
       id: 'p1',
-      href: 'projects/project-page-template.html',
+      href: 'projects/project-ctrlzen.html',
       title: 'Ctrl+Zen - nwHacks Hackathon',
       caption: 'Real-time attention and emotion sensing via OpenCV/DeepFace.',
-      poster: '../assets/img/p1-poster.jpg',
+      poster: 'assets/img/ctrlzen.png',
       stack: ['Python', 'JS', 'HTML/CSS', 'Figma', 'Flask'],
       sources: [
-        { src: '../assets/video/test-vid.webm', type: 'video/webm' },
-        { src: '../assets/video/test-vid.mp4',  type: 'video/mp4' },
+        // { src: '../assets/video/test-vid.webm', type: 'video/webm' },
+        { src: 'assets/video/ctrlzen-video.mp4',  type: 'video/mp4' },
       ],
       year: 4,
       teamType: 'team',
     },
     {
       id: 'p2',
-      href: 'projects/project-02.html',
+      href: 'projects/project-temp.html',
       title: 'VR Physics Simulator',
       caption: 'High-fidelity VR interaction with low-latency hand physics, animation, & grab mechanics.',
       poster: '../assets/img/p2-poster.jpg',
@@ -29,7 +29,7 @@ const projects = [
     },
     {
       id: 'p3',
-      href: 'projects/project-tarotandroid.html',
+      href: 'projects/project-temp.html',
       title: 'Tarot Fortune Reader App',
       caption: 'Animated XML UI (Glide), sortable library, & OOP deck architecture.',
       poster: '../assets/img/p3-poster.jpg',
@@ -43,35 +43,37 @@ const projects = [
     },
     {
       id: 'p4',
-      href: 'projects/project-04.html',
+      href: 'https://github.com/H3AHenil/squid_game_database',
       title: 'Squid Game Web Database',
       caption: 'Oracle SQL app with REST endpoints, live queries, & normalized BCNF schema.',
-      poster: '../assets/img/p4-poster.jpg',
+      poster: 'assets/img/sg-poster.png',
       stack: ['SQL', 'JS', 'HTML/CSS', 'Express.js'],
       sources: [
-        { src: '../assets/video/test-vid.webm', type: 'video/webm' },
-        { src: '../assets/video/test-vid.mp4',  type: 'video/mp4' },
+        // { src: '../assets/video/test-vid.webm', type: 'video/webm' },
+        // { src: '../assets/video/test-vid.mp4',  type: 'video/mp4' }, coming soon!!!!
       ],
       year: 5,
       teamType: 'team',
+      newTab: true,
+      
     },
     {
       id: 'p5',
-      href: 'projects/project-05.html',
+      href: 'https://github.com/H3AHenil/resource_management_simulator',
       title: 'Resource Management Simulator',
       caption: 'OOP-based Java strategy sim, JSON save/load, & JUnit test coverage.',
-      poster: '../assets/img/p5-poster.jpg',
+      poster: 'assets/img/rms.png',
       stack: ['Java', 'Swing', 'JSON', 'JUnit'],
       sources: [
-        { src: '../assets/video/p3.webm', type: 'video/webm' },
-        { src: '../assets/video/p3.mp4',  type: 'video/mp4' },
       ],
       year: 3,
       teamType: 'solo',
+      newTab: true,
+      youtube: 'https://www.youtube.com/watch?v=tdAM_a6lvgM'
     },
     {
       id: 'p6',
-      href: 'projects/project-05.html',
+      href: 'projects/project-temp.html',
       title: 'RingWorks - WIP',
       caption: 'C++/OpenGL planetary rings: tiling, noise, LOD perf.',
       poster: '../assets/img/p5-poster.jpg',
@@ -86,7 +88,7 @@ const projects = [
   ];
   
   
-  // Simple mobile-ish detection
+  // Mobile detection
   function useIsMobile() {
     const [isMobile, setIsMobile] = React.useState(false);
   
@@ -141,7 +143,7 @@ const projects = [
     }, []);
   
     const handleMouseEnter = () => {
-      if (isMobile) return; // no hover autoplay on mobile
+      if (isMobile) return;
       const v = videoRef.current;
       if (!v) return;
       v.play().catch(() => {});
@@ -156,53 +158,66 @@ const projects = [
     };
   
     const handleClick = (e) => {
-      if (!isMobile) return; // on desktop, let link work normally
+      if (!isMobile) return;
       const v = videoRef.current;
       if (!v) return;
-      // First tap plays video, second tap will follow the link
+
       if (v.paused) {
         e.preventDefault();
         v.play().catch(() => {});
       }
     };
-  
+
+    const openInNewTab = project.newTab === true;
     return (
-      <a
-        className="project-card"
-        href={project.href}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={handleClick}
-      >
-        <figure className="thumb">
-          <video
-            className="proj-video"
-            muted
-            playsInline
-            loop={!isMobile}
-            preload="none"
-            poster={project.poster}
-            aria-label={`${project.title} preview`}
-            ref={videoRef}
-          >
-            {project.sources.map((src) => (
-              <source
-                key={src.src}
-                data-src={src.src}
-                type={src.type}
-              />
-            ))}
-          </video>
-        </figure>
+     <a
+  className="project-card"
+  href={project.href}
+  target={openInNewTab ? '_blank' : undefined}
+  rel={openInNewTab ? 'noopener noreferrer' : undefined}
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+  onClick={handleClick}
+>
+<figure className="thumb">
+  <video
+    className="proj-video"
+    muted
+    playsInline
+    loop={!isMobile}
+    preload="none"
+    poster={project.poster}
+    aria-label={`${project.title} preview`}
+    ref={videoRef}
+  >
+    {project.sources.map((src) => (
+      <source key={src.src} data-src={src.src} type={src.type} />
+    ))}
+  </video>
+
+  {project.youtube && (
+    <a
+      className="yt-icon-btn"
+      href={project.youtube}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Watch ${project.title} on YouTube`}
+      onClick={(e) => e.stopPropagation()}   // don’t trigger the card link
+    >
+      <img src="../assets/img/youtube.png" alt="" aria-hidden="true" />
+    </a>
+  )}
+</figure>
+
         <h3 className="proj-title">{project.title}</h3>
         <p className="proj-caption">{project.caption}</p>
         <div className="stack">
-          {project.stack.map((item) => (
-            <span key={item} className="badge">
-              {item}
-            </span>
-          ))}
-        </div>
+  {project.stack.map((item) => (
+    <span key={item} className="badge">{item}</span>
+  ))}
+</div>
+
+        
       </a>
     );
   }
