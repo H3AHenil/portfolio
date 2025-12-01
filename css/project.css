@@ -426,6 +426,35 @@
     font-size:0.72em;
   }
   
+.design-elevate{
+  position: relative;
+  z-index: 8;
+}
+
+.design-elevate .design-img{
+  display: block;
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.tarot-page .project-hero-media {
+  justify-self: center;
+}
+
+.tarot-page .crt-window {
+  width: min(560px, 92vw);
+  margin-inline: auto;
+}
+
+.tarot-page .crt-window video {
+  max-height: 56vh;
+  width: 100%;
+  height: auto;
+}
+
 .thumb{ position: relative; }
 
 .yt-icon-btn{
