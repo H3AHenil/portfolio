@@ -1,18 +1,13 @@
-// Autoplay helper and reduced motion respect
+// // Autoplay helper and reduced motion respect
 (function(){
     const vid = document.getElementById('heroVideo');
     if (!vid) return;
   
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReduced.matches) vid.pause();
-  
-    window.addEventListener('load', () => {
-      const p = vid.play?.();
-      if (p && typeof p.then === 'function') p.catch(()=>{ /* autoplay blocked */ });
-    });
-  
+
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) vid.pause(); else vid.play().catch(()=>{});
+      if (document.hidden) vid.pause();
     });
   })();
   

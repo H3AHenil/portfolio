@@ -65,14 +65,14 @@ const projects = [
   },
   {
     id: 'p6',
-    href: 'projects/project-temp.html',
-    title: 'RingWorks - WIP',
-    caption: 'C++/OpenGL planetary rings: tiling, noise, LOD perf.',
-    // poster: 'assets/img/sg-poster.png',
-    stack: ['C++', 'OpenGL', 'GLFW'],
+    href: 'https://devpost.com/software/glasses-l4u7sm?_gl=1*lh83ip*_gcl_au*MTg5MjAzNDg5MC4xNzc5NjY1MjE5*_ga*MTgwNDE2ODQwMS4xNzc5NjY1MjE5*_ga_0YHJK3Y10M*czE3Nzk2NjUyMTkkbzEkZzEkdDE3Nzk2NjUyMjgkajUxJGwwJGgw',
+    title: 'Pineapple Vision Pro',
+    caption: 'OpenCV hand gesture controlled AR glasses',
+    poster: 'assets/img/pineapple.jpg',
+    stack: ['Python', 'OpenCV', 'Mediapipe'],
     sources: [],
     year: 6,
-    teamType: 'solo',
+    teamType: 'team',
   },
 ];
 

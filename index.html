@@ -72,7 +72,7 @@
           </div>
         
           <div class="project-hero-media">
-            <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/img/test-img.png">
+            <video id="heroVideo" muted loop playsinline preload="none" poster="../assets/img/test-img.png">
               <source src="../assets/video/test-vid.webm" type="video/webm" />
               <source src="../assets/video/test-vid.mp4"  type="video/mp4" />
             </video>
@@ -104,9 +104,6 @@
              whether through spatial interfaces, simulation, or experimental prototypes. 
              Beyond that, I’ve built a wide range of full-stack applications, participated in hackathons and 
              competitions, and supported younger developers in learning to make video-games :)
-
-            
-            
           </p>
           <p>
             I’m currently working with my university’s Faculty of Medicine EdTech team to deliver XR learning 
@@ -141,19 +138,8 @@
     </main>
   </div>
 
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-  <!-- Babel so we can write JSX in a separate file -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- React island for the projects grid -->
-  <script
-    type="text/babel"
-    data-presets="env,react"
-    src="js/projects.react.js">
-  </script>
-
+  <!-- Dependency-free projects grid -->
+  <script defer src="js/projects.react.js"></script>
   <script defer src="js/app.js"></script>
 </body>
 </html>
