@@ -76,7 +76,9 @@
               <source src="../assets/video/test-vid.webm" type="video/webm" />
               <source src="../assets/video/test-vid.mp4"  type="video/mp4" />
             </video>
-            
+            <button class="hero-play-prompt" type="button" aria-label="Play portfolio highlight reel" aria-controls="heroVideo">
+              <span aria-hidden="true">▶</span>
+            </button>
           </div>
         </div>
         
@@ -87,8 +89,8 @@
       <nav class="theme-nav" aria-label="Sections">
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -117,12 +119,6 @@
         </div>
       </section>
 
-      <section id="projects" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Projects</h2>
-        <div id="projects-root"></div>
-      </section>
-      
-
       <section id="experience" aria-labelledby="exp-heading">
         <h2 id="exp-heading">Experience</h2>
         <div class="experience-timeline">
@@ -140,6 +136,7 @@
               <div class="stack" aria-label="XR Developer skills">
                 <span class="badge">XR</span>
                 <span class="badge">Unity</span>
+                <span class="badge">Unreal Virtual Production</span>
                 <span class="badge">Educational Technology</span>
               </div>
               <div class="experience-links" aria-label="XR Developer links">
@@ -185,21 +182,31 @@
             </div>
           </article>
 
+          <section class="tiktok-showcase" aria-label="TikTok showcase" data-tiktok-showcase>
+            <h4>Social media showcase</h4>
+            <div class="tiktok-showcase-grid">
+              <div class="tiktok-player-shell" data-tiktok-player aria-live="polite">
+                <p class="tiktok-empty">TikTok player will load when a video URL is added.</p>
+              </div>
+              <div class="tiktok-controls" aria-label="TikTok carousel controls">
+                <button type="button" data-tiktok-prev aria-label="Previous TikTok video">Prev</button>
+                <button type="button" data-tiktok-next aria-label="Next TikTok video">Next</button>
+              </div>
+            </div>
+          </section>
+
           <article class="experience-item">
             <div class="experience-meta">
               <span class="experience-date">Sept 2023 - Present</span>
-              <span class="experience-place">UBC Vancouver</span>
+              <span class="experience-place">Vancouver, BC</span>
             </div>
             <div class="experience-content">
-              <p class="experience-kicker">The University of British Columbia · Student</p>
+              <p class="experience-kicker">The University of British Columbia</p>
               <h3>Computer Science Student</h3>
               <p class="muted">
-                Studying computer science with a focus on immersive, visual, and interactive technologies.
+                3rd year in B.Sc
               </p>
               <div class="stack" aria-label="Student focus areas">
-                <span class="badge">Computer Science</span>
-                <span class="badge">Interactive Systems</span>
-                <span class="badge">Real-time Visuals</span>
               </div>
             </div>
           </article>
@@ -225,6 +232,11 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <div id="projects-root"></div>
       </section>
 
       <section id="contact" aria-labelledby="contact-heading">

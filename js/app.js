@@ -2,12 +2,28 @@
 (function(){
     const vid = document.getElementById('heroVideo');
     if (!vid) return;
+    const playPrompt = document.querySelector('.hero-play-prompt');
   
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReduced.matches) vid.pause();
 
+    function syncPlayPrompt(){
+      playPrompt?.classList.toggle('is-hidden', !vid.paused);
+    }
+
+    playPrompt?.addEventListener('click', function(){
+      vid.play().catch(()=>{});
+    });
+
+    vid.addEventListener('play', syncPlayPrompt);
+    vid.addEventListener('pause', syncPlayPrompt);
+    syncPlayPrompt();
+
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) vid.pause();
+      if (document.hidden) {
+        vid.pause();
+        syncPlayPrompt();
+      }
     });
   })();
   
@@ -316,4 +332,167 @@
   });
   
 
+})();
+
+// Lightweight TikTok showcase for the RKO Interactive experience card.
+(function(){
+  const showcase = document.querySelector('[data-tiktok-showcase]');
+  if (!showcase) return;
+
+  // Manually paste curated TikTok video URLs from @vrinteractiondesignlab here.
+  // Expected URL format: https://www.tiktok.com/@vrinteractiondesignlab/video/1234567890123456789
+  const tiktokVideos = [
+    {
+      platform: "TikTok",
+      account: "@vrinteractiondesignlab",
+      title: "Curated VR interaction video",
+      url: "https://www.tiktok.com/@vrinteractiondesignlab/video/7618717445087448338"
+    },
+    {
+      platform: "TikTok",
+      account: "@vrinteractiondesignlab",
+      title: "Interaction prototype highlight",
+      url: "https://www.tiktok.com/@vrinteractiondesignlab/video/7628373732599368968"
+    },
+    {
+      platform: "TikTok",
+      account: "@vrinteractiondesignlab",
+      title: "Lab showcase clip",
+      url: "https://www.tiktok.com/@vrinteractiondesignlab/video/7628720600252484871"
+    },
+    {
+      platform: "TikTok",
+      account: "@vrinteractiondesignlab",
+      title: "Lab showcase clip",
+      url: "https://www.tiktok.com/@vrinteractiondesignlab/video/7641670906145672455"
+    }
+    // Add more curated TikTok video objects above this line.
+  ];
+
+  const player = showcase.querySelector('[data-tiktok-player]');
+  const prevButton = showcase.querySelector('[data-tiktok-prev]');
+  const nextButton = showcase.querySelector('[data-tiktok-next]');
+
+  let activeIndex = 0;
+  let hasLoaded = false;
+  let autoTimer = null;
+  let userPausedAutoCycle = false;
+  let shouldAutoplayActiveVideo = false;
+
+  function normalizeIndex(index){
+    return (index + tiktokVideos.length) % tiktokVideos.length;
+  }
+
+  function getTikTokPostId(url){
+    if (!url || url.includes('PASTE_TIKTOK_VIDEO_URL_HERE')) return '';
+
+    const videoMatch = url.match(/\/video\/(\d+)/);
+    if (videoMatch) return videoMatch[1];
+
+    const playerMatch = url.match(/\/player\/v1\/(\d+)/);
+    return playerMatch ? playerMatch[1] : '';
+  }
+
+  function getTikTokPlayerUrl(url, shouldAutoplay){
+    const postId = getTikTokPostId(url);
+    if (!postId) return '';
+    const autoplay = shouldAutoplay ? '1' : '0';
+    return `https://www.tiktok.com/player/v1/${postId}?music_info=1&description=1&rel=0&volume_control=1&muted=0&autoplay=${autoplay}`;
+  }
+
+  function sendPlayerMessage(iframe, type){
+    iframe.contentWindow?.postMessage({ type, 'x-tiktok-player': true }, '*');
+  }
+
+  function pauseAutoCycle(){
+    userPausedAutoCycle = true;
+    if (autoTimer){
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function startAutoCycle(){
+    if (userPausedAutoCycle || tiktokVideos.length < 2 || autoTimer) return;
+
+    autoTimer = window.setInterval(function(){
+      setActiveVideo(activeIndex + 1, { userInitiated: false });
+    }, 8000);
+  }
+
+  function renderActiveEmbed(){
+    const video = tiktokVideos[activeIndex];
+    const playerUrl = getTikTokPlayerUrl(video.url, shouldAutoplayActiveVideo);
+
+    player.replaceChildren();
+
+    if (!playerUrl){
+      const empty = document.createElement('p');
+      empty.className = 'tiktok-empty';
+      empty.textContent = 'Paste a TikTok video URL in js/app.js to load this embed.';
+      player.appendChild(empty);
+      return;
+    }
+
+    const iframe = document.createElement('iframe');
+    iframe.src = playerUrl;
+    iframe.title = `${video.title} on ${video.platform}`;
+    iframe.loading = 'lazy';
+    iframe.allow = 'fullscreen; autoplay';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+    if (shouldAutoplayActiveVideo){
+      iframe.addEventListener('load', function(){
+        sendPlayerMessage(iframe, 'unMute');
+        sendPlayerMessage(iframe, 'play');
+      }, { once: true });
+    }
+
+    player.appendChild(iframe);
+  }
+
+  function render(){
+    if (hasLoaded) renderActiveEmbed();
+  }
+
+  function setActiveVideo(index, options){
+    activeIndex = normalizeIndex(index);
+    shouldAutoplayActiveVideo = !!options?.userInitiated;
+    if (options?.userInitiated) pauseAutoCycle();
+    render();
+  }
+
+  function loadShowcase(){
+    if (hasLoaded) return;
+    hasLoaded = true;
+    renderActiveEmbed();
+    startAutoCycle();
+  }
+
+  prevButton.addEventListener('click', function(){
+    setActiveVideo(activeIndex - 1, { userInitiated: true });
+  });
+
+  nextButton.addEventListener('click', function(){
+    setActiveVideo(activeIndex + 1, { userInitiated: true });
+  });
+
+  player.addEventListener('pointerdown', pauseAutoCycle);
+  player.addEventListener('mouseenter', pauseAutoCycle);
+  player.addEventListener('focusin', pauseAutoCycle);
+
+  render();
+
+  if ('IntersectionObserver' in window){
+    const observer = new IntersectionObserver(function(entries){
+      if (entries.some(function(entry){ return entry.isIntersecting; })){
+        loadShowcase();
+        observer.disconnect();
+      }
+    }, { threshold: 0.15 });
+
+    observer.observe(showcase);
+  } else {
+    loadShowcase();
+  }
 })();
