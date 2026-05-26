@@ -10,8 +10,42 @@
 	--grid-opacity: 0.15;
 	--grid-tilt: 75deg;
 	--perspective: 700px;
+	--scanline-color: rgba(0,0,0,0.9);
+	--text-glow-tight-radius: 5px;
+	--text-glow-tight-color: rgba(255,179,0,0.30);
+	--text-glow-wide-radius: 8px;
+	--text-glow-wide-color: rgba(255,179,0,0.15);
+	--crt-header-scanline-color: rgba(0,0,0,0.7);
+	--panel-glow-tight-color: rgba(255,179,0,0.25);
+	--panel-glow-wide-color: rgba(255,179,0,0.12);
   
 	--container: min(1120px, 94vw);
+  }
+
+  html.platform-windows{
+	--grid-opacity: 0.11;
+	--grid-glow: rgba(184,184,184,0.24);
+	--scanline-color: rgba(0,0,0,0.78);
+	--text-glow-tight-radius: 2px;
+	--text-glow-tight-color: rgba(255,179,0,0.18);
+	--text-glow-wide-radius: 5px;
+	--text-glow-wide-color: rgba(255,179,0,0.08);
+	--crt-header-scanline-color: rgba(0,0,0,0.48);
+	--panel-glow-tight-color: rgba(255,179,0,0.16);
+	--panel-glow-wide-color: rgba(255,179,0,0.07);
+  }
+
+  html.platform-touch{
+	--grid-opacity: 0.09;
+	--grid-glow: rgba(184,184,184,0.18);
+	--scanline-color: rgba(0,0,0,0.62);
+	--text-glow-tight-radius: 1.5px;
+	--text-glow-tight-color: rgba(255,179,0,0.16);
+	--text-glow-wide-radius: 4px;
+	--text-glow-wide-color: rgba(255,179,0,0.06);
+	--crt-header-scanline-color: rgba(0,0,0,0.36);
+	--panel-glow-tight-color: rgba(255,179,0,0.13);
+	--panel-glow-wide-color: rgba(255,179,0,0.05);
   }
   
   /* BASE */
@@ -44,7 +78,7 @@
 	background:repeating-linear-gradient(
 	  to bottom,
 	  transparent 0 2px,
-	  rgba(0,0,0,0.9) 2px 3px
+	  var(--scanline-color) 2px 3px
 	);
 	mix-blend-mode:normal;
   }
@@ -62,6 +96,11 @@
 	-webkit-mask-image:linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 18%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%);
 			mask-image:linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 18%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%);
 	mix-blend-mode:normal;
+  }
+
+  html.platform-windows .synth-grid,
+  html.platform-touch .synth-grid{
+	filter:none;
   }
   
   /* LAYOUT CONTAINERS */
@@ -227,8 +266,8 @@
   .content h5,
   .content h6{
 	text-shadow:
-	  0 0 5px rgba(255,179,0,0.30),
-	  0 0 8px rgba(255,179,0,0.15);
+	  0 0 var(--text-glow-tight-radius) var(--text-glow-tight-color),
+	  0 0 var(--text-glow-wide-radius) var(--text-glow-wide-color);
   }
   
   
@@ -657,6 +696,25 @@
 
 	.tiktok-player-shell{
 	  max-width:240px;
+	}
+  }
+
+  @media (max-width:700px), (hover:none) and (pointer:coarse){
+	:root{
+	  --grid-opacity: 0.09;
+	  --grid-glow: rgba(184,184,184,0.18);
+	  --scanline-color: rgba(0,0,0,0.62);
+	  --text-glow-tight-radius: 1.5px;
+	  --text-glow-tight-color: rgba(255,179,0,0.16);
+	  --text-glow-wide-radius: 4px;
+	  --text-glow-wide-color: rgba(255,179,0,0.06);
+	  --crt-header-scanline-color: rgba(0,0,0,0.36);
+	  --panel-glow-tight-color: rgba(255,179,0,0.13);
+	  --panel-glow-wide-color: rgba(255,179,0,0.05);
+	}
+
+	.synth-grid{
+	  filter:none;
 	}
   }
   
