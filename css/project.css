@@ -208,11 +208,13 @@
     inset:0;
     pointer-events:none;
     /*  scanline pattern */
-    background:repeating-linear-gradient(
+    background-image:linear-gradient(
       to bottom,
-      transparent 0 2px,
-      var(--crt-header-scanline-color) 2px 3px
+      transparent 0 var(--scanline-gap),
+      var(--crt-header-scanline-color) var(--scanline-gap) calc(var(--scanline-gap) + var(--scanline-thickness))
     );
+    background-size:100% calc(var(--scanline-gap) + var(--scanline-thickness));
+    background-repeat:repeat;
     mix-blend-mode:multiply;
     opacity:0.9;
     z-index:-1;

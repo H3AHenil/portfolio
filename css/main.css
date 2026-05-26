@@ -10,6 +10,8 @@
 	--grid-opacity: 0.15;
 	--grid-tilt: 75deg;
 	--perspective: 700px;
+	--scanline-gap: 2px;
+	--scanline-thickness: 1px;
 	--scanline-color: rgba(0,0,0,0.9);
 	--text-glow-tight-radius: 5px;
 	--text-glow-tight-color: rgba(255,179,0,0.30);
@@ -25,27 +27,31 @@
   html.platform-windows{
 	--grid-opacity: 0.11;
 	--grid-glow: rgba(184,184,184,0.24);
-	--scanline-color: rgba(0,0,0,0.78);
-	--text-glow-tight-radius: 2px;
-	--text-glow-tight-color: rgba(255,179,0,0.18);
-	--text-glow-wide-radius: 5px;
-	--text-glow-wide-color: rgba(255,179,0,0.08);
-	--crt-header-scanline-color: rgba(0,0,0,0.48);
-	--panel-glow-tight-color: rgba(255,179,0,0.16);
-	--panel-glow-wide-color: rgba(255,179,0,0.07);
+	--scanline-gap: 2.4px;
+	--scanline-thickness: 0.6px;
+	--scanline-color: rgba(0,0,0,0.84);
+	--text-glow-tight-radius: 4.25px;
+	--text-glow-tight-color: rgba(255,179,0,0.27);
+	--text-glow-wide-radius: 7.25px;
+	--text-glow-wide-color: rgba(255,179,0,0.13);
+	--crt-header-scanline-color: rgba(0,0,0,0.58);
+	--panel-glow-tight-color: rgba(255,179,0,0.21);
+	--panel-glow-wide-color: rgba(255,179,0,0.10);
   }
 
   html.platform-touch{
 	--grid-opacity: 0.09;
 	--grid-glow: rgba(184,184,184,0.18);
-	--scanline-color: rgba(0,0,0,0.62);
-	--text-glow-tight-radius: 1.5px;
-	--text-glow-tight-color: rgba(255,179,0,0.16);
-	--text-glow-wide-radius: 4px;
-	--text-glow-wide-color: rgba(255,179,0,0.06);
-	--crt-header-scanline-color: rgba(0,0,0,0.36);
-	--panel-glow-tight-color: rgba(255,179,0,0.13);
-	--panel-glow-wide-color: rgba(255,179,0,0.05);
+	--scanline-gap: 2.5px;
+	--scanline-thickness: 0.5px;
+	--scanline-color: rgba(0,0,0,0.76);
+	--text-glow-tight-radius: 3.75px;
+	--text-glow-tight-color: rgba(255,179,0,0.25);
+	--text-glow-wide-radius: 6.75px;
+	--text-glow-wide-color: rgba(255,179,0,0.12);
+	--crt-header-scanline-color: rgba(0,0,0,0.46);
+	--panel-glow-tight-color: rgba(255,179,0,0.18);
+	--panel-glow-wide-color: rgba(255,179,0,0.08);
   }
   
   /* BASE */
@@ -75,11 +81,13 @@
   /* scanlines follow scroll */
   .overlay{
 	position:fixed; inset:0; pointer-events:none; z-index:5;
-	background:repeating-linear-gradient(
+	background-image:linear-gradient(
 	  to bottom,
-	  transparent 0 2px,
-	  var(--scanline-color) 2px 3px
+	  transparent 0 var(--scanline-gap),
+	  var(--scanline-color) var(--scanline-gap) calc(var(--scanline-gap) + var(--scanline-thickness))
 	);
+	background-size:100% calc(var(--scanline-gap) + var(--scanline-thickness));
+	background-repeat:repeat;
 	mix-blend-mode:normal;
   }
   
@@ -703,14 +711,16 @@
 	:root{
 	  --grid-opacity: 0.09;
 	  --grid-glow: rgba(184,184,184,0.18);
-	  --scanline-color: rgba(0,0,0,0.62);
-	  --text-glow-tight-radius: 1.5px;
-	  --text-glow-tight-color: rgba(255,179,0,0.16);
-	  --text-glow-wide-radius: 4px;
-	  --text-glow-wide-color: rgba(255,179,0,0.06);
-	  --crt-header-scanline-color: rgba(0,0,0,0.36);
-	  --panel-glow-tight-color: rgba(255,179,0,0.13);
-	  --panel-glow-wide-color: rgba(255,179,0,0.05);
+	  --scanline-gap: 2.5px;
+	  --scanline-thickness: 0.5px;
+	  --scanline-color: rgba(0,0,0,0.76);
+	  --text-glow-tight-radius: 3.75px;
+	  --text-glow-tight-color: rgba(255,179,0,0.25);
+	  --text-glow-wide-radius: 6.75px;
+	  --text-glow-wide-color: rgba(255,179,0,0.12);
+	  --crt-header-scanline-color: rgba(0,0,0,0.46);
+	  --panel-glow-tight-color: rgba(255,179,0,0.18);
+	  --panel-glow-wide-color: rgba(255,179,0,0.08);
 	}
 
 	.synth-grid{
