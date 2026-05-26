@@ -40,6 +40,31 @@
     }, { passive: false });
   })();
 
+  (function(){
+    const backToTop = document.querySelector('.back-to-top');
+    if (!backToTop) return;
+
+    const showAfter = 320;
+
+    function syncBackToTop(){
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0
+        ? Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100))
+        : 0;
+
+      backToTop.style.setProperty('--scroll-progress', `${progress}%`);
+      backToTop.hidden = window.scrollY <= showAfter;
+    }
+
+    backToTop.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', syncBackToTop, { passive: true });
+    window.addEventListener('resize', syncBackToTop);
+    syncBackToTop();
+  })();
+
 // Draggable and controllable CRT video window on project pages
 (function(){
   const win    = document.querySelector('.crt-window');

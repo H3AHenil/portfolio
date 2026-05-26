@@ -73,6 +73,52 @@
   a[href^="mailto"], a.elevate{
 	position:relative; z-index:7;
   }
+
+  .back-to-top{
+	--scroll-progress: 0%;
+	position:fixed;
+	right:24px;
+	bottom:24px;
+	z-index:20;
+	display:grid;
+	place-items:center;
+	width:50px;
+	height:50px;
+	padding:0;
+	color:var(--phosphor);
+	background:
+	  linear-gradient(#000, #000) padding-box,
+	  conic-gradient(var(--phosphor) var(--scroll-progress), rgba(255,179,0,0.18) 0) border-box;
+	border:3px solid transparent;
+	border-radius:50%;
+	cursor:pointer;
+	box-shadow:
+	  0 0 5px rgba(255,179,0,0.30),
+	  0 0 8px rgba(255,179,0,0.15);
+	transition:background .16s ease, color .16s ease, transform .16s ease, opacity .16s ease;
+  }
+
+  .back-to-top[hidden]{
+	display:none;
+  }
+
+  .back-to-top span{
+	width:11px;
+	height:11px;
+	border-left:2px solid currentColor;
+	border-top:2px solid currentColor;
+	transform:translateY(3px) rotate(45deg);
+  }
+
+  .back-to-top:hover,
+  .back-to-top:focus-visible{
+	color:#fff;
+	background:
+	  linear-gradient(#000, #000) padding-box,
+	  conic-gradient(#fff var(--scroll-progress), rgba(255,255,255,0.42) 0) border-box;
+	transform:translateY(-2px);
+	outline:none;
+  }
   
   /* HERO */
   .hero{
