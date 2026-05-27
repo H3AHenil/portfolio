@@ -676,7 +676,9 @@
 	.experience-item:nth-of-type(odd),
 	.experience-item:nth-of-type(even){
 	  grid-column:1;
+	  grid-row:auto;
 	  justify-self:stretch;
+	  align-self:start;
 	  width:100%;
 	  margin-top:0;
 	}
@@ -697,9 +699,14 @@
 	}
 
 	.tiktok-showcase::before{
-	  left:-30px;
+	  top:-20px;
+	  left:50%;
 	  right:auto;
-	  width:30px;
+	  width:0;
+	  height:20px;
+	  border-top:0;
+	  border-left:1px dashed var(--phosphor);
+	  transform:translateX(-50%);
 	}
 
 	.tiktok-player-shell{
